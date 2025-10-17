@@ -1,10 +1,10 @@
 # Godot+
 
-**Android C# Support through AOD
+** Android C# Support through AOD
 
 Made by horihori2013
 
-# Godot Engine
+# [Original Readme from Godot] Godot Engine
 
 <p align="center">
   <a href="https://godotengine.org">
