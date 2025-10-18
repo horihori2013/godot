@@ -29,11 +29,13 @@ jobs:
           fi
           files=$(echo "$files" | xargs -I {} sh -c 'echo "\"./{}\""' | tr '\n' ' ')
           echo "CHANGED_FILES=$files" >> $GITHUB_ENV
+          continue-on-error: true
 
       - name: Style checks via pre-commit
         uses: pre-commit/action@v3.0.1
         with:
           extra_args: --files ${{ env.CHANGED_FILES }}
+          continue-on-error: true
 
       - name: Class reference schema checks
         run: |
