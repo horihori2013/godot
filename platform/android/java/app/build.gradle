@@ -92,7 +92,7 @@ android {
 
     assetPacks = [":assetPackInstallTime"]
 
-    namespace = 'com.godot.game'
+    namespace = 'com.github.horihori2013.godotplus'
 
     defaultConfig {
         // The default ignore pattern for the 'assets' directory includes hidden files and directories which are used by Godot projects.
