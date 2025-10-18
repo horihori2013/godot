@@ -1,5 +1,5 @@
 def is_desktop(platform):
-    return platform in ["windows", "macos", "linuxbsd"]
+    return platform in ["windows", "macos", "linuxbsd", "android"]
 
 
 def is_unix_like(platform):
