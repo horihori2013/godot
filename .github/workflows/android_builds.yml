@@ -9,6 +9,7 @@ env:
     module_text_server_fb_enabled=yes
     tests=no
     swappy=yes
+    module_mono_enabled=yes
 
 jobs:
   build-android:
