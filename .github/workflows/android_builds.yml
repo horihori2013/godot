@@ -90,6 +90,10 @@ jobs:
           cd ../../..
           ls -l bin/
 
+      - name: Decode keystore
+        run: |
+          echo "${{ secrets.ANDROID_KEYSTORE }}" | base64 --decode > $GITHUB_WORKSPACE/my-release-key.keystore
+
       - name: Generate Godot editor
         if: matrix.target == 'editor'
         run: |
@@ -97,6 +101,11 @@ jobs:
           ./gradlew generateGodotEditor
           ./gradlew generateGodotHorizonOSEditor
           ./gradlew generateGodotPicoOSEditor
+          ./gradlew assembleRelease \
+            -Pandroid.injected.signing.store.file=$GITHUB_WORKSPACE/my-release-key.keystore \
+            -Pandroid.injected.signing.store.password=${{ secrets.KEYSTORE_PASSWORD }} \
+            -Pandroid.injected.signing.key.alias=${{ secrets.KEY_ALIAS }} \
+            -Pandroid.injected.signing.key.password=${{ secrets.KEY_PASSWORD }}
           cd ../../..
           ls -l bin/android_editor_builds/
 
